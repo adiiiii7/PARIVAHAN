@@ -5,33 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parivahan Nexus</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              game: ['"Press Start 2P"', 'cursive'],
-              tech: ['"Share Tech Mono"', 'monospace'],
-              hud: ['"Rajdhani"', 'sans-serif'],
-            },
-            colors: { neon: { cyan: '#00f3ff', purple: '#bc13fe', red: '#ff003c', green: '#00ff66' } }
-          }
-        }
-      }
+      /* This tells Tailwind to use our Night Mode toggle switch */
+      tailwind.config = { darkMode: 'class' }
     </script>
     <style>
-      body { background-color: #050b14; color: #e2e8f0; margin: 0; }
-      .scanline {
-        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-        background-size: 100% 4px, 3px 100%; pointer-events: none; z-index: 50;
+      body { 
+        margin: 0; 
+        /* Native Apple System Fonts */
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+        -webkit-font-smoothing: antialiased;
+        background-color: #000; /* Fallback */
       }
-      .glitch-hover:hover { text-shadow: 2px 0 #00f3ff, -2px 0 #ff003c; }
+      
+      /* Clean macOS-style scrollbars */
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(150,150,150,0.3); border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(150,150,150,0.5); }
+      
+      .hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
   </head>
   <body>
-    <div class="scanline"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
